@@ -44,10 +44,24 @@
         <td mat-cell *matCellDef="let element"> {{element.createdAt | date }} </td>
     </ng-container>
 
-    <!-- Fecha creacion Rol -->
+    <!-- Fecha creacion Column -->
     <ng-container matColumnDef="role">
         <th mat-header-cell *matHeaderCellDef> Rol </th>
         <td mat-cell *matCellDef="let element"> {{element.Rol}} </td>
+    </ng-container>
+
+    <!-- Acciones Administrativas Column -->
+    <ng-container matColumnDef="manage">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+            <button (click)="openDialog(element)" mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <!-- <button *ngIf="roleSession == 'ADMIN'"  -->
+            <button (click)="onDeleteStudent(element.id)" mat-icon-button color="warn">
+                <mat-icon>person_remove</mat-icon>
+            </button>
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

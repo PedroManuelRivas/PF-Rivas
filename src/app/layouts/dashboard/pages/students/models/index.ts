@@ -5,5 +5,7 @@ export interface IStudent {
     age: number;
     email: string;
     createdAt: Date;
-    role?: string;
+    role?: StudentRole;
 }
+
+export type StudentRole = 'ADMIN' | 'STUDENT'
