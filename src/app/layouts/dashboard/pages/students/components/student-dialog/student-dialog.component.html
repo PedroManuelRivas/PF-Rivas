@@ -6,16 +6,19 @@
             <div class="col-6"> <mat-form-field class="w-100">
                     <mat-label>Nombre</mat-label>
                     <input formControlName="firstName" matInput />
+                    <mat-error>{{ firstNameControl?.errors | formFieldValidationErrors }}</mat-error>
                     <mat-hint>El campo no debe estar vacío</mat-hint>
                 </mat-form-field></div>
             <div class="col-6"> <mat-form-field class="w-100">
                     <mat-label>Apellido</mat-label>
                     <input formControlName="lastName" matInput />
+                    <mat-error>{{ lastNameControl?.errors | formFieldValidationErrors }}</mat-error>
                     <mat-hint>El campo no debe estar vacío</mat-hint>
                 </mat-form-field></div>
             <div class="col-3"> <mat-form-field class="w-100">
                     <mat-label>Edad</mat-label>
                     <input formControlName="age" matInput />
+                    <mat-error>{{ ageControl?.errors | formFieldValidationErrors }}</mat-error>
                     <mat-hint>El campo no debe estar vacío</mat-hint>
                 </mat-form-field></div>
             <div class="col-3"> <mat-form-field class="w-100">
@@ -33,6 +36,7 @@
             <div class="col-6"> <mat-form-field class="w-100">
                     <mat-label>Email</mat-label>
                     <input formControlName="email" matInput />
+                    <mat-error>{{ emailControl?.errors | formFieldValidationErrors }}</mat-error>
                     <mat-hint>El campo no debe estar vacío</mat-hint>
                 </mat-form-field></div>
         </div>

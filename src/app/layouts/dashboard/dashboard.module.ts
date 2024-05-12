@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { StudentsModule } from './pages/students/students.module';
 
-
 @NgModule({
   declarations: [
     DashboardComponent
@@ -21,7 +20,7 @@ import { StudentsModule } from './pages/students/students.module';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    StudentsModule
+    StudentsModule,
   ],
   exports: [DashboardComponent]
 })

@@ -8,9 +8,18 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { NameTransformPipe } from './pipes/name-transform.pipe';
+import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-errors.pipe';
+import { ResaltadoDirective } from './directives/resaltado.directive';
+import { FontSizeDirective } from './directives/font-size.directive';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NameTransformPipe,
+    FormFieldValidationErrorsPipe,
+    ResaltadoDirective,
+    FontSizeDirective
+  ],
   imports: [
     CommonModule
   ], exports: [
@@ -22,6 +31,10 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatSelectModule,
     MatIconModule,
+    FormFieldValidationErrorsPipe,
+    NameTransformPipe,
+    ResaltadoDirective,
+    FontSizeDirective
   ]
 })
 export class SharedModule { }

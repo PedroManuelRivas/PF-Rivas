@@ -9,7 +9,7 @@ import { StudentDialogComponent } from './components/student-dialog/student-dial
   styleUrl: './students.component.scss'
 })
 export class StudentsComponent {
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'age', 'email', 'createdAt', 'role', 'manage'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'fullName', 'age', 'email', 'createdAt', 'role', 'manage'];
   students: IStudent[] = [
     {
       id: 1,
