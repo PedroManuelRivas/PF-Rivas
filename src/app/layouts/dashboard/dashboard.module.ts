@@ -8,6 +8,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { StudentsModule } from './pages/students/students.module';
+import { CoursesModule } from './pages/courses/courses.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { StudentsModule } from './pages/students/students.module';
     MatIconModule,
     MatButtonModule,
     StudentsModule,
+    CoursesModule, 
+    SharedModule
   ],
   exports: [DashboardComponent]
 })
