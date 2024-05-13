@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { IStudent } from '../../models';
+import { StudentsService } from '../../students.service';
 
 @Component({
   selector: 'app-student-detail',
@@ -7,10 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './student-detail.component.scss'
 })
 export class StudentDetailComponent {
-  constructor(private activatedRoute: ActivatedRoute) {
-    // this.activatedRoute.params.subscribe({
-    //   next: (v) => console.log(v)
-    // })
-    this.activatedRoute.snapshot.params['id']
+  student$: Observable<IStudent | undefined>
+  constructor(private activatedRoute: ActivatedRoute, private _studentsService: StudentsService) {
+    this.student$ = this._studentsService.getStudentsById(parseInt(this.activatedRoute.snapshot.params['id']))
   }
 }

@@ -19,8 +19,19 @@ export class AuthService {
   private _authUser$ = new BehaviorSubject<IStudent | null>(null);
   public authUser$ = this._authUser$.asObservable();
 
-  constructor(private router: Router) {}
+  // constructor(private router: Router) { }
 
+  login(): void {
+    this._authUser$.next({
+      id: 1,
+      createdAt: new Date(),
+      email: "bruno@gmail.com",
+      firstName: "Bruno",
+      lastName: "Albeiro",
+      role: "ADMIN",
+      age: 2
+    })
+  }
   // login(data: LoginData): void {
   //   if (data.email !== 'user@mail.com' || data.password !== '123456') {
   //     alert('Correo o password incorrectos');
@@ -34,15 +45,15 @@ export class AuthService {
   //   }
   // }
 
-//   verifyToken(): boolean {
-//     const token = localStorage.getItem('accessToken');
-//     if (token) {
-//       this._authUser$.next(this.MOCK_AUTH_USER);
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   }
+  //   verifyToken(): boolean {
+  //     const token = localStorage.getItem('accessToken');
+  //     if (token) {
+  //       this._authUser$.next(this.MOCK_AUTH_USER);
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
 
   logout(): void {
     this._authUser$.next(null);

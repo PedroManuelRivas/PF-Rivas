@@ -13,8 +13,7 @@ import { FormFieldValidationErrorsPipe } from './pipes/form-field-validation-err
 import { ResaltadoDirective } from './directives/resaltado.directive';
 import { FontSizeDirective } from './directives/font-size.directive';
 import { MatListModule } from '@angular/material/list';
-
-
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     NameTransformPipe,
@@ -37,7 +36,8 @@ import { MatListModule } from '@angular/material/list';
     NameTransformPipe,
     ResaltadoDirective,
     FontSizeDirective,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ]
 })
 export class SharedModule { }
