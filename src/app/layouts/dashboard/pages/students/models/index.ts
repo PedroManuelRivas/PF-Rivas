@@ -9,3 +9,13 @@ export interface IStudent {
 }
 
 export type StudentRole = 'ADMIN' | 'STUDENT'
+
+export interface CreateUserPayload {
+    firstName: string | null;
+    lastName: string | null;
+    age: number | null;
+    email: string | null;
+    createdAt: Date | null;
+    role?: StudentRole | null;
+  }
+  

@@ -1,30 +1,39 @@
 {
-    "students": [
-        {
-            "id": "1",
-            "firstName": "Bruno",
-            "lastName": "Albeiro",
-            "age": 2,
-            "email": "brunoalbeiro@gmail.com",
-            "createdAt": "new Date()",
-            "role": "ADMIN"
-        },
-        {
-            "id": "2",
-            "firstName": "Marcela",
-            "lastName": "Valentina",
-            "age": 1,
-            "email": "marcelavalentina@gmail.com",
-            "createdAt": "new Date()",
-            "role": "STUDENT"
-        }
-    ],
-    "courses": [
-        {
-            "id": 1,
-            "name": "Angular",
-            "value": 40000
-        }
-    ],
-    "subjects": []
+  "students": [
+    {
+      "id": "1",
+      "firstName": "Bruno",
+      "lastName": "Albeiro",
+      "age": 2,
+      "email": "brunoalbeiro@gmail.com",
+      "createdAt": "new Date()",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "firstName": "Marcela",
+      "lastName": "Valentina",
+      "age": 1,
+      "email": "marcelavalentina@gmail.com",
+      "createdAt": "new Date()",
+      "role": "STUDENT"
+    },
+    {
+      "id": "7997",
+      "firstName": "asd",
+      "lastName": "asd",
+      "age": "12",
+      "role": "STUDENT",
+      "email": "pedro@gnau.com",
+      "createdAt": "2024-05-14T02:13:30.359Z"
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Angular",
+      "value": 40000
+    }
+  ],
+  "subjects": []
 }

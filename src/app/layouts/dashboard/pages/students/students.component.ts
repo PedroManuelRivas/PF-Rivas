@@ -42,9 +42,12 @@ export class StudentsComponent implements OnInit {
             this.students = this.students.map(student => student.id === studentToEdit.id ? { ...student, ...result } : student)
           }
           else {
-            result.id = new Date().getTime().toString().substring(0, 3);
             result.createdAt = new Date();
-            this.students = [...this.students, result]
+            this.studentsService.createUser(result).subscribe({
+              next: (student) => {
+                this.students = [...this.students, student]
+              }
+            })
           }
         }
       }
