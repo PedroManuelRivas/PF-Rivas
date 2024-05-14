@@ -1,0 +1,28 @@
+<form [formGroup]="inscriptionForm" action="">
+    <mat-form-field>
+        <mat-label>Asignatura</mat-label>
+        <mat-select formControlName="subject">
+            <mat-option [value]="course" *ngFor="let course of courses">{{course.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Cantidad de horas</mat-label>
+        <input formControlName="quantity" matInput type="number">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Costo</mat-label>
+        <mat-select formControlName="value">
+            <mat-option [value]="course.value" *ngFor="let course of courses">{{course.value}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Alumno</mat-label>
+        <mat-select formControlName="student">
+            <mat-option [value]="student" *ngFor="let student of students">{{student.firstName}} {{student.lastName}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button (click)="submitCourse()">Inscribir Curso</button>
+</form>
+<pre>{{inscriptionForm.value | json}}</pre>
+
+<pre>{{inscriptions | json}}</pre>
