@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LoginData } from '../layouts/auth/models/index';
+import { ILoginData } from '../layouts/auth/models/index';
 import { Router } from '@angular/router';
 import { IStudent } from '../layouts/dashboard/pages/students/models';
 
@@ -21,16 +21,21 @@ export class AuthService {
 
   // constructor(private router: Router) { }
 
-  login(): void {
-    this._authUser$.next({
-      id: 1,
-      createdAt: new Date(),
-      email: "bruno@gmail.com",
-      firstName: "Bruno",
-      lastName: "Albeiro",
-      role: "ADMIN",
-      age: 2
-    })
+  login(data: ILoginData): void {
+    if (data.email !== 'bruno@gmail.com' || data.password !== '123') {
+      alert('Correo o contraseña incorrectos')
+    } else {
+      this._authUser$.next({
+        id: 1,
+        createdAt: new Date(),
+        email: "bruno@gmail.com",
+        firstName: "Bruno",
+        lastName: "Albeiro",
+        role: "ADMIN",
+        age: 2
+      })
+    }
+
   }
   // login(data: LoginData): void {
   //   if (data.email !== 'user@mail.com' || data.password !== '123456') {

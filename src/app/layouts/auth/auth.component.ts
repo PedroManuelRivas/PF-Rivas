@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ILoginData } from './models';
 
 @Component({
   selector: 'app-auth',
@@ -9,12 +11,19 @@ import { Subscription } from 'rxjs';
   styleUrl: './auth.component.scss'
 })
 export class AuthComponent implements OnDestroy, OnInit {
-  constructor(private _authService: AuthService, private router: Router) {
+  authUserChangeSubscription?: Subscription;
+
+  loginForm: FormGroup;
+
+  constructor(private _authService: AuthService, private router: Router, private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    })
   }
   ngOnInit(): void {
     this.subscribeToAuthUserChange();
   }
-  authUserChangeSubscription?: Subscription;
   subscribeToAuthUserChange(): void {
     this.authUserChangeSubscription = this._authService.authUser$.subscribe({
       next: (authUser) => {
@@ -26,7 +35,11 @@ export class AuthComponent implements OnDestroy, OnInit {
   }
 
   login() {
-    this._authService.login()
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+    } else {
+      this._authService.login(this.loginForm.getRawValue())
+    }
   }
   ngOnDestroy(): void {
     this.authUserChangeSubscription?.unsubscribe();

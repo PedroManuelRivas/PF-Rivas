@@ -29,9 +29,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.authUser$ = _authService.authUser$;
   }
 
-  login(): void {
-    this._authService.login()
-  }
   logout(): void {
     this._authService.logout()
     this.router.navigate(['auth'])
