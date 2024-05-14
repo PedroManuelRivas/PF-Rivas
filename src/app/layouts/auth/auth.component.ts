@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -22,17 +22,17 @@ export class AuthComponent implements OnDestroy, OnInit {
     })
   }
   ngOnInit(): void {
-    this.subscribeToAuthUserChange();
+    // this.subscribeToAuthUserChange();
   }
-  subscribeToAuthUserChange(): void {
-    this.authUserChangeSubscription = this._authService.authUser$.subscribe({
-      next: (authUser) => {
-        if (authUser != null) {
-          this.router.navigate(['dashboard', 'home'])
-        }
-      }
-    })
-  }
+  // subscribeToAuthUserChange(): void {
+  //   this.authUserChangeSubscription = this._authService.authUser$.subscribe({
+  //     next: (authUser) => {
+  //       if (authUser != null) {
+  //         this.router.navigate(['dashboard', 'home'])
+  //       }
+  //     }
+  //   })
+  // }
 
   login() {
     if (this.loginForm.invalid) {

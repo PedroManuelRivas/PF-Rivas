@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { adminGuard } from '../../core/guards/admin.guard';
+import { unsavedChangesGuard } from '../../core/guards/unsavedChanges.guard';
 
 const routes: Routes = [
   {
@@ -8,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'students',
-    // canActivate: [adminGuard],
+    canActivate: [adminGuard],
     loadChildren: () =>
       import('./pages/students/students.module').then((m) => m.StudentsModule),
   },
@@ -18,6 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'inscriptions',
+    canDeactivate: [unsavedChangesGuard],
     loadChildren: () => import('./pages/inscriptions/inscriptions.module').then((m) => m.InscriptionsModule)
   },
   {

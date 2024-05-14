@@ -3,21 +3,10 @@
     <mat-drawer [opened]="!isMobile()" #drawer class="example-sidenav" [mode]="isMobile() ? 'over' : 'side'">
         <mat-nav-list>
             <a routerLink="home" mat-list-item>Inicio</a>
-            <a routerLink="students" mat-list-item>Estudiantes</a>
+            <a *ngIf="(authUser$ | async)?.role === 'ADMIN'" routerLink="students" mat-list-item>Estudiantes</a>
             <a routerLink="courses" mat-list-item>Materias</a>
             <a routerLink="inscriptions" mat-list-item>Inscribir Materias</a>
             <a (click)="logout()" mat-list-item>Cerrar sesion</a>
-
-            <!-- <a
-              *ngIf="(authUser$ | async)?.role === 'ADMIN'"
-              routerLink="users"
-              mat-list-item
-              >Usuarios</a
-            > -->
-            <!-- /dashboard/sales -->
-            <!-- /sales -->
-            <!-- <a routerLink="sales" mat-list-item>Ventas</a>
-            <a (click)="logout()" mat-list-item>Cerrar sesion</a> -->
         </mat-nav-list>
     </mat-drawer>
     <!-- Sidebar -->
@@ -37,7 +26,7 @@
                     <span>ABM Estudiantes</span>
                 </div>
 
-                <div *ngIf="authUser$ | async; let user" > {{user?.firstName }} </div>
+                <div *ngIf="authUser$ | async; let user"> {{user?.firstName }} </div>
             </div>
         </mat-toolbar>
         <!-- Toolbar -->
