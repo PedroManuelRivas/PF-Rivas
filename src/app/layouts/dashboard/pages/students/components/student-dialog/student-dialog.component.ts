@@ -11,7 +11,6 @@ import { IStudent } from '../../models';
 export class StudentDialogComponent {
   studentForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private matDialogRef: MatDialogRef<StudentDialogComponent>, @Inject(MAT_DIALOG_DATA) private student?: IStudent) {
-    console.log(student)
     this.studentForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$'), Validators.maxLength(5)]],
       lastName: ['', [Validators.required, Validators.pattern('^[a-zA-ZÁÉÍÓÚáéíóúñÑ]+$')]],

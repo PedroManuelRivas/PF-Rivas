@@ -28,15 +28,15 @@ export class AuthService {
     } else {
       this._authUser$.next(this.MOCK_AUTH_USER);
       localStorage.setItem(
-        'accessToken',
-        'fdskfdsjkmngfunudsijfdsioufjsdoifdsyhfds'
+        'authorizacion',
+        'tokenUltraSecreto123123123'
       );
       this.router.navigate(['dashboard', 'home']);
     }
   }
 
     verifyToken(): boolean {
-      const token = localStorage.getItem('accessToken');
+      const token = localStorage.getItem('authorizacion');
       if (token) {
         this._authUser$.next(this.MOCK_AUTH_USER);
         return true;
@@ -47,6 +47,6 @@ export class AuthService {
 
   logout(): void {
     this._authUser$.next(null);
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem('authorizacion');
   }
 }

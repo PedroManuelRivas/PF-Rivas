@@ -12,6 +12,6 @@ import { StudentsService } from '../../students.service';
 export class StudentDetailComponent {
   student$: Observable<IStudent | undefined>
   constructor(private activatedRoute: ActivatedRoute, private _studentsService: StudentsService) {
-    this.student$ = this._studentsService.getStudentsById(parseInt(this.activatedRoute.snapshot.params['id']))
+    this.student$ = this._studentsService.getStudentsById(this.activatedRoute.snapshot.params['id'])
   }
 }
